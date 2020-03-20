@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>download</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <div class="title-box">
+        <ul>
+            <li><a href="/">Home</a></li>
+
+            {% if user.is_authenticated %}
+            <li style="text-align: center; margin-top:auto;padding:14px 20px;"><a style="background-color: green;" href="accounts/profile">Hello, {{user.username}}</a></li>
+            <li><a href="accounts/logout">logout</a></li>
+            {% else %}
+            <li><a href="accounts/signin">Log in!</a></li>
+            <li><a href="accounts/register">Sign up!</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="big-box">
+        <div class="content-box download-left">
+            <h2>Select Your Course</h2>
+            <form action="material" name="material">
+                <input type="text" name="ccode" placeholder="Entre Your Course Code i.e. cv250" required><br>
+                <input type="submit" class="submit" value="Submit">
+            </form>
+            <p><span>Note:</span>Entre your department subject course code to access study materials</p>
+        </div>
+        <div class="content-box right">
+            <h4>Feel Free To Ask Question</h4>
+        </div>
+    </div>
+
+</body>
+
+</html>
